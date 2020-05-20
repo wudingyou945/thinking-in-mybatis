@@ -24,6 +24,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<package name="com.bjsxt.mapper"/>
+		<package name="com.asiainfo.mapper"/>
 	</mappers>
 </configuration>

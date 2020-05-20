@@ -1,4 +1,4 @@
-package com.bjsxt.pojo;
+package com.asiainfo.pojo;
 
 public class Log {
 	private int id;

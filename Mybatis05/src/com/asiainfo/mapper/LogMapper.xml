@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bjsxt.mapper.LogMapper">
-	<!-- <select id="selByAccinAccout" resultType="log">
+<mapper namespace="com.asiainfo.mapper.LogMapper">
+<!-- 	<select id="selByAccinAccout" resultType="log">
 		select * from log where 1=1
 		OGNL表达式,直接写key或对象的属性.不需要添加任何特字符号
 		<if test="accin!=null and accin!=''">
@@ -26,7 +26,8 @@
 		</where>
 	</select> -->
 	
-	<select id="selByAccinAccout" resultType="log">
+	<!-- choose when otherwise -->
+	<!-- <select id="selByAccinAccout" resultType="log">
 		select * from log 
 		<where>
 			<choose>
@@ -36,11 +37,14 @@
 				<when test="accout!=null and accout!=''">
 					and accout=#{accout}
 				</when>
+				<otherwise>
+					and money=#{money}
+				</otherwise>
 			</choose>
 		</where>
-	</select>
+	</select> -->
 	
-<!-- 	<update id="upd" parameterType="log" >
+	<!-- <update id="upd" parameterType="log" >
 		update log 
 		<set>
 			id=#{id},
@@ -57,9 +61,9 @@
 	<update id="upd" parameterType="log">
 		update log
 		<trim prefix="set" suffixOverrides=",">
-		a=a,
+		accOut=#{accOut},
 		</trim>
-		where id=100
+		where id=55
 	</update>
 	
 	<!-- <select id="selByLog" parameterType="log" resultType="log">
@@ -88,7 +92,6 @@
 			</foreach>
 		</trim>
 	</insert>
-	
 	
 	<select id="">
 		 select <include refid="mysql"></include>
