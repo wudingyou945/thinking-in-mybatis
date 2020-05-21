@@ -2,7 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.asiainfo.mapper.LogMapper">
+<mapper namespace="com.asiainfo.mapper.LogMapper" >
+<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"></cache>
 <!-- 	<select id="selByAccinAccout" resultType="log">
 		select * from log where 1=1
 		OGNL表达式,直接写key或对象的属性.不需要添加任何特字符号
@@ -27,7 +28,7 @@
 	</select> -->
 	
 	<!-- choose when otherwise -->
-	<!-- <select id="selByAccinAccout" resultType="log">
+	<select id="selByAccinAccout" resultType="log">
 		select * from log 
 		<where>
 			<choose>
@@ -42,7 +43,7 @@
 				</otherwise>
 			</choose>
 		</where>
-	</select> -->
+	</select>
 	
 	<!-- <update id="upd" parameterType="log" >
 		update log 

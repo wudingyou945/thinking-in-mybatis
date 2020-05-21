@@ -21,17 +21,38 @@ public class Test {
 		
 		InputStream is = Resources.getResourceAsStream("mybatis.xml");
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
-		SqlSession session = factory.openSession();
-		LogMapper mapper = session.getMapper(LogMapper.class);
-/*		List<Log> logs = mapper.selByAccinAccout("234", null, 50);
+//		SqlSession session = factory.openSession();
+//		LogMapper mapper = session.getMapper(LogMapper.class);
+//		List<Log> logs = mapper.selByAccinAccout("345", null, 26);
+//		for (Log log : logs) {
+//			System.out.println(log);
+//		}
+//		logs = mapper.selByAccinAccout("345", null, 26);
+//		for (Log log : logs) {
+//			System.out.println(log);
+//		}
+		SqlSession session1 = factory.openSession();
+		SqlSession session2 = factory.openSession();
+		LogMapper mapper1 = session1.getMapper(LogMapper.class);
+		LogMapper mapper2 = session2.getMapper(LogMapper.class);
+		// 第一次发起请求
+		List<Log> logs = mapper1.selByAccinAccout("345", null, 26);
 		for (Log log : logs) {
 			System.out.println(log);
-		}*/
-		Log log = new Log();
-		log.setId(1);
-		log.setAccIn("245");
-		log.setAccOut("136");
-		mapper.upd(log);
+		}
+		// 这里执行关闭操作，将sqlsession中的数据写入到二级缓存区域
+		session1.close();
+		logs = mapper2.selByAccinAccout("345", null, 26);
+		for (Log log : logs) {
+			System.out.println(log);
+		}
+		session2.close();
+		
+//		Log log = new Log();
+//		log.setId(1);
+//		log.setAccIn("245");
+//		log.setAccOut("136");
+//		mapper.upd(log);
 		
 /*		SqlSession session = factory.openSession(ExecutorType.BATCH);
 		Scanner input = new Scanner(System.in);
@@ -62,8 +83,8 @@ public class Test {
 		
 //		mapper.selIn(list);
 		
-		session.commit();
-		session.close();
+//		session.commit();
+//		session.close();
 		System.out.println("程序执行结束");
 	}
 }

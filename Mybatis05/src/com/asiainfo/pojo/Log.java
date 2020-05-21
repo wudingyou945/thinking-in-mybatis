@@ -1,6 +1,12 @@
 package com.asiainfo.pojo;
 
-public class Log {
+import java.io.Serializable;
+
+public class Log implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String accIn;
 	private String accOut;
