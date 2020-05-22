@@ -25,4 +25,5 @@
         resultMap="clazzMap">
         SELECT * FROM tb_student WHERE id = #{id}
     </select>
+    
 </mapper>

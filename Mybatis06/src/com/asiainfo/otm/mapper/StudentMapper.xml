@@ -25,6 +25,6 @@
     </select>
     
     <select id="selectStudentByClazzId" parameterType="int" resultMap="studentResultMap">
-    	select * from tb_student where id=#{id}
+    	select * from tb_student where clazz_id=#{id}
     </select>
 </mapper>
