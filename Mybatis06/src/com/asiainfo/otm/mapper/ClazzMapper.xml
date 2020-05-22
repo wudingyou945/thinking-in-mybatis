@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asiainfo.otm.mapper.ClazzMapper">
+
+    <resultMap type="com.asiainfo.otm.pojo.Clazz"
+        id="clazzMap">
+        <id property="id" column="id" />
+        <result property="code" column="code" />
+        <result property="name" column="name" />
+        <!-- 一对多关联映射:collection -->
+        <collection property="students" javaType="ArrayList"
+            column="clazz_id" 
+            select="com.asiainfo.otm.mapper.StudentMapper.selectStudentByClazzId"
+            fetchType="lazy">
+            <id property="id" column="id" />
+            <result property="name" column="name" />
+            <result property="sex" column="sex" />
+            <result property="age" column="age" />
+        </collection>
+    </resultMap>
+
+    <select id="selectClazzById" parameterType="int"
+        resultMap="clazzMap">
+        SELECT * FROM tb_student WHERE id = #{id}
+    </select>
+</mapper>

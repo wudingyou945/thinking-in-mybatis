@@ -30,5 +30,9 @@
 		<mapper class="com.asiainfo.mtm.mapper.ArticleMapper" />
         <mapper class="com.asiainfo.mtm.mapper.OrderMapper" />
         <mapper class="com.asiainfo.mtm.mapper.UserMapper" />
+        <mapper class="com.asiainfo.oto.mapper.PersonMapper" />
+        <mapper class="com.asiainfo.oto.mapper.CardMapper" />
+        <mapper class="com.asiainfo.otm.mapper.ClazzMapper" />
+        <mapper class="com.asiainfo.otm.mapper.StudentMapper" />
 	</mappers>
 </configuration>
