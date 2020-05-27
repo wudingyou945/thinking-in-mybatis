@@ -23,10 +23,10 @@ public class Test {
         // 创建Session实例
         SqlSession session = sqlSessionFactory.openSession();
 
-        Test app = new Test();
+        Test test = new Test();
 
-        app.testSelectClazzById(session);
-        //        t.testSelectStudentById(session);
+//        test.testSelectClazzById(session);
+        test.testSelectStudentById(session);
 
         // 提交事务
         session.commit();

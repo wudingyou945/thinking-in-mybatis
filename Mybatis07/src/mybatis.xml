@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+		<!-- 通知 MyBatis 框架开启二级缓存,全局开启二级缓存 -->
+		<!-- <setting name="cacheEnabled" value="true" /> -->
+	</settings>
+	<typeAliases>
+		<!-- 这里使用的是别名的方式 -->
+		<typeAlias type="com.asiainfo.pojo.People" alias="people"/>
+		<!-- 这种方式是将包下面的所有的类都以类名首字母小写为别名 -->
+		<!-- <package name="com.asiainfo.pojo" /> -->
+	</typeAliases>
+	<!-- default引用environment的id,当前所使用的环境 -->
+	<environments default="default">
+		<!-- 声明可以使用的环境 -->
+		<environment id="default">
+			<!-- 使用原生JDBC事务 -->
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/ssm" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="com/asiainfo/mapper/PeopleMapper.xml"/>
+	</mappers>
+</configuration>

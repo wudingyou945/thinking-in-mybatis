@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="a.b">
+	<select id="selectAll" resultType="people">
+		select id,name,age from people
+	</select>
+	
+	<select id="selectMap" resultType="map">
+		select id,name,age from people where id=#{id}
+	</select>
+	
+	<insert id="insert" parameterType="people">
+		insert into people(name, age) values (#{name}, #{age})
+	</insert>
+	<update id="updateById" parameterType="people">
+		update people set age=#{age},name=#{name} where id=#{id}
+	</update>
+	<delete id="deleteById" parameterType="int">
+		delete from people where id=#{0}
+	</delete>
+</mapper>
